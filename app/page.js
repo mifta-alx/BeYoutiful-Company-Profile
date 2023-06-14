@@ -1,4 +1,6 @@
+"use client"
 import Image from 'next/image'
+import { useEffect, useState } from 'react';
 import { Plus_Jakarta_Sans } from 'next/font/google'
 const pjs = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -8,9 +10,86 @@ const pjs = Plus_Jakarta_Sans({
 })
 
 export default function Home() {
+  const dataImage = [
+    {
+      'url': '/1.jpg',
+      'productName': 'Wardah Highlighter',
+      'rating': 4,
+      'price': 'Rp57.000'
+    },
+    {
+      'url': '/2.jpg',
+      'productName': 'Maybelline Powder',
+      'rating': 5,
+      'price': 'Rp89.000'
+    },
+    {
+      'url': '/3.jpg',
+      'productName': 'BeYoutiful Eyeshadow',
+      'rating': 5,
+      'price': 'Rp60.000'
+    },
+    {
+      'url': '/4.jpg',
+      'productName': 'BeYoutiful Eyeshadow',
+      'rating': 5,
+      'price': 'Rp60.000'
+    },
+    {
+      'url': '/5.jpg',
+      'productName': 'BeYoutiful Eyeshadow',
+      'rating': 5,
+      'price': 'Rp60.000'
+    },
+    {
+      'url': '/6.jpg',
+      'productName': 'BeYoutiful Eyeshadow',
+      'rating': 5,
+      'price': 'Rp60.000'
+    },
+    {
+      'url': '/7.jpg',
+      'productName': 'BeYoutiful Eyeshadow',
+      'rating': 5,
+      'price': 'Rp60.000'
+    },
+    {
+      'url': '/8.jpg',
+      'productName': 'BeYoutiful Eyeshadow',
+      'rating': 5,
+      'price': 'Rp60.000'
+    },
+    {
+      'url': '/9.jpg',
+      'productName': 'BeYoutiful Eyeshadow',
+      'rating': 5,
+      'price': 'Rp60.000'
+    },
+  ]
+  const [currentImageIndexes, setCurrentImageIndexes] = useState([0, 1, 2]);
+  const [activeDotIndex, setActiveDotIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndexes((prevIndexes) => {
+        const nextIndex = (prevIndexes[2] + 1) % dataImage.length;
+        const nextIndexes = [];
+
+        for (let i = nextIndex; i < nextIndex + 3; i++) {
+          nextIndexes.push(i % dataImage.length);
+        }
+
+        setActiveDotIndex(nextIndexes[0] / 3); // Update active dot index
+
+        return nextIndexes;
+      });
+    }, 4000); // Mengubah interval menjadi 4 detik
+
+    return () => clearInterval(interval);
+  }, []);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-white" >
-      <div className='bg-gradient-to-tr from-rose-200 via-rose-100 to-white w-full h-screen'>
+      <div className='bg-gradient-to-tr from-rose-200 via-rose-100 to-white w-full h-fit'>
 
         <nav class="bg-transparent w-full">
           <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-12 md:px-16 p-4">
@@ -54,13 +133,14 @@ export default function Home() {
           <img src='./banner.jpg' className='w-[428px] md:h-[500px] h-[250px] object-cover object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' />
         </div>
       </div>
-      <div className='bg-gradient-to-br from-rose-200 via-rose-100 to-white w-full h-screen items-center flex'>
-        <div className='flex max-w-screen-xl md:flex-row flex-col gap-8 md:gap-0 px-4 py-8 md:px-16 md:py-10 w-full items-center justify-between mx-auto'>
-          <img src='./section2.jpg' className='w-[468px] md:h-[540px] h-[250px] object-cover object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' />
-          <div className='max-w-xl'>
-            <div className='space-y-5'>
-              <h1 className={`${pjs.className} text-xl md:text-5xl text-black font-normal italic`}>Modern Product for</h1>
-              <h1 className={`${pjs.className} text-xl md:text-5xl text-black font-bold not-italic`}>Modern Care</h1>
+
+      <div className='bg-gradient-to-br from-rose-200 via-rose-100 to-white w-full h-fit items-center flex'>
+        <div className='flex max-w-screen-xl md:flex-row flex-col gap-8 md:gap-0 px-4 py-8 md:px-16 md:py-24 w-full items-center justify-between mx-auto'>
+          <img src='./section2.jpg' className='md:order-1 order-2 w-[468px] md:h-[540px] h-[350px] object-cover object-top md:object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' />
+          <div className='max-w-xl md:order-2 order-1'>
+            <div className='md:space-y-5'>
+              <h1 className={`${pjs.className} text-3xl md:text-5xl text-black font-normal italic md:text-left text-center`}>Modern Product for</h1>
+              <h1 className={`${pjs.className} text-3xl md:text-5xl text-black font-bold not-italic md:text-left text-center`}>Modern Care</h1>
             </div>
             <div className='md:mt-6 mt-4'>
               <p className={`${pjs.className} font-normal text-sm md:text-xl text-black text-justify`}>BeYoutiful adalah sebuah platform inovatif yang menyediakan solusi kecantikan yang lebih mudah dan efektif bagi konsumen. Platform kami dirancang untuk meningkatkan aksesibilitas, efisiensi bisnis, dan pengalaman pelanggan dalam mencari, memilih, dan membeli produk atau jasa kecantikan. Melalui teknologi canggih dan fitur-fitur inovatif, BeYoutiful menyediakan solusi kecantikan yang efektif dan sesuai dengan kebutuhan konsumen, serta mendorong inovasi dalam industri kecantikan</p>
@@ -68,20 +148,49 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* <div className='bg-gradient-to-tr from-rose-200 via-rose-100 to-white w-full h-screen items-center flex'>
-        <div className='flex max-w-screen-xl md:flex-row flex-col gap-8 md:gap-0 px-4 py-8 md:px-16 md:py-10 w-full items-center justify-between mx-auto'>
-          <img src='./section2.jpg' className='w-[468px] md:h-[540px] h-[250px] object-cover object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' />
-          <div className='max-w-xl'>
-            <div className='space-y-5'>
-              <h1 className={`${pjs.className} text-xl md:text-5xl text-black font-normal italic`}>Modern Product for</h1>
-              <h1 className={`${pjs.className} text-xl md:text-5xl text-black font-bold not-italic`}>Modern Care</h1>
-            </div>
-            <div className='md:mt-6 mt-4'>
-              <p className={`${pjs.className} font-normal text-sm md:text-xl text-black text-justify`}>BeYoutiful adalah sebuah platform inovatif yang menyediakan solusi kecantikan yang lebih mudah dan efektif bagi konsumen. Platform kami dirancang untuk meningkatkan aksesibilitas, efisiensi bisnis, dan pengalaman pelanggan dalam mencari, memilih, dan membeli produk atau jasa kecantikan. Melalui teknologi canggih dan fitur-fitur inovatif, BeYoutiful menyediakan solusi kecantikan yang efektif dan sesuai dengan kebutuhan konsumen, serta mendorong inovasi dalam industri kecantikan</p>
-            </div>
+      <div className='bg-gradient-to-tr from-rose-200 via-rose-100 to-white w-full h-fit flex'>
+        <div className='flex max-w-screen-xl flex-col gap-8 md:gap-0 px-4 py-8 md:px-16 md:py-10 w-full items-center justify-center mx-auto'>
+          <h1 className={`uppercase ${pjs.className} font-medium tracking-widest text-black text-5xl`}>Product</h1>
+          <div className="flex justify-center space-x-6 mt-14">
+            {currentImageIndexes.map((index) => {
+              const product = dataImage[index];
+              return (
+                <div key={index} className="flex flex-col items-center">
+                  <img
+                    key={index}
+                    src={dataImage[index].url}
+                    alt={`Image ${index + 1}`}
+                    className="w-[348px] h-[480px] object-cover rounded-2xl drop-shadow-xl"
+                  />
+                  <div className="mt-8 bg-primary w-full rounded-xl px-6 py-4 flex flex-col gap-4 opacity-[86%]">
+                    <span className="text-white space-x-4">
+                      {'★'.repeat(product.rating)}
+                    </span>
+                    <h3 className={`${pjs.className} font-semibold tracking-wide text-lg`}>{product.productName}</h3>
+                    <span className={`${pjs.className} text-base font-light text-white tracking-wide`}>{product.price}</span>
+                  </div>
+                </div>
+              )
+            }
+            )}
+          </div>
+          <div className="flex mt-8">
+            {[0, 1, 2].map((index) => (
+              <div
+                key={index}
+                className={`w-4 h-4 mx-1 rounded-full border-primary border ${index === activeDotIndex ? 'bg-primary' : 'bg-white'
+                  }`}
+              ></div>
+            ))}
           </div>
         </div>
-      </div> */}
+      </div>
+      <div className='bg-gradient-to-tr from-rose-200 via-rose-300 to-rose-400 w-full h-fit flex md:py-8 md:px-16'>
+        <div className='text-center w-full space-y-2'>
+          <h1 className={`${pjs.className} font-black text-5xl tracking-wider uppercase italic text-black`}>Never <span className='text-white'>miss a</span> sale <span className='text-white'>again</span></h1>
+          <p className={`${pjs.className} font-light text-white text-lg tracking-widest`}>by : LEGAR COMPANY</p>
+        </div>
+      </div>
     </main>
   )
 }
