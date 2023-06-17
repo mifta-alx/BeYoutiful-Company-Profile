@@ -91,29 +91,29 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between bg-white" >
       <div className='bg-gradient-to-tr from-rose-200 via-rose-100 to-white w-full h-fit'>
 
-        <nav class="bg-transparent w-full">
-          <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-12 md:px-16 p-4">
-            <a href="#" class="flex items-center">
-              <img src="./logo.png" class="h-12 mr-3" alt="Logo" />
-              <span class={`self-center text-2xl whitespace-nowrap text-black ${pjs.className} font-bold`}>Be<span className='text-primary opacity-[86%]'>You</span>tiful</span>
+        <nav className="bg-transparent w-full">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto md:py-12 md:px-16 p-4">
+            <a href="#" className="flex items-center">
+              <img src="./logo.png" className="h-12 mr-3" alt="Logo" />
+              <span className={`self-center text-2xl whitespace-nowrap text-black ${pjs.className} font-bold`}>Be<span className='text-primary opacity-[86%]'>You</span>tiful</span>
             </a>
-            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-primary rounded-lg md:hidden focus:outline-none focus:ring-1 focus:ring-primary" aria-controls="navbar-sticky" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
+            <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 text-sm text-primary rounded-lg md:hidden focus:outline-none focus:ring-1 focus:ring-primary" aria-controls="navbar-sticky" aria-expanded="false">
+              <span className="sr-only">Open main menu</span>
+              <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
             </button>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-              <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+            <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+              <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
                 <li>
-                  <a href="#" class="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Beranda</a>
+                  <a href="#" className="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Beranda</a>
                 </li>
                 <li>
-                  <a href="#" class="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Fasilitas</a>
+                  <a href="#" className="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Fasilitas</a>
                 </li>
                 <li>
-                  <a href="#" class="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Beauty Partner</a>
+                  <a href="#" className="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Beauty Partner</a>
                 </li>
                 <li>
-                  <a href="#" class="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Contact</a>
+                  <a href="#" className="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Contact</a>
                 </li>
               </ul>
             </div>
@@ -185,10 +185,71 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className='bg-gradient-to-tr from-rose-200 via-rose-300 to-rose-400 w-full h-fit flex md:py-8 md:px-16'>
-        <div className='text-center w-full space-y-2'>
-          <h1 className={`${pjs.className} font-black text-5xl tracking-wider uppercase italic text-black`}>Never <span className='text-white'>miss a</span> sale <span className='text-white'>again</span></h1>
-          <p className={`${pjs.className} font-light text-white text-lg tracking-widest`}>by : LEGAR COMPANY</p>
+      <div className='bg-gradient-to-tr from-rose-200 via-rose-300 to-rose-400 w-full h-fit flex'>
+        <div className='flex max-w-screen-xl flex-col md:gap-20 px-4 py-8 md:px-16 md:py-10 w-full items-center justify-center mx-auto'>
+          <div className='flex flex-row justify-between w-full'>
+            <div className='flex flex-col max-w-sm justify-between'>
+              <h1 className={`text-2xl whitespace-nowrap text-black ${pjs.className} font-bold`}>Be<span className='text-primary opacity-[86%]'>You</span>tiful</h1>
+              <p className={`${pjs.className} text-lg font-bold text-white`}>The No. 1 Digital Destination for all things about Beauty - Shopping, LifeStyle & Trends</p>
+            </div>
+            <div className='flex flex-row gap-9'>
+              <div className={`flex flex-col ${pjs.className} gap-6`}>
+                <p className='uppercase font-normal'>information</p>
+                <ul className={`${pjs.className} font-normal text-sm`}>
+                  <li>
+                    <a href="">Our Story</a>
+                  </li>
+                  <li>
+                    <a href="">
+                      BeYoutiful Promies</a>
+                  </li>
+                  <li>
+                    <a href="">
+                      Curation Process</a>
+                  </li>
+                  <li>
+                    <a href="">
+                      The BeYoutiful Brand
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">BeYoutiful Rewards
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">BeYoutiful Feed
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div className={`flex flex-col ${pjs.className} gap-6`}>
+                <p className='uppercase font-normal'>customer care</p>
+                <ul className={`${pjs.className} font-normal text-sm`}>
+                  <li>
+                    <a href="">My Account
+                    </a>
+                  </li>
+                  <li>
+                    <a href="">
+                      FAQs</a>
+                  </li>
+                  <li>
+                    <a href="">
+                      Privacy Policy</a>
+                  </li>
+                  <li>
+                    <a href="">
+                      Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className='text-center w-full space-y-2'>
+            <h1 className={`${pjs.className} font-black text-5xl tracking-wider uppercase italic text-black`}>Never <span className='text-white'>miss a</span> sale <span className='text-white'>again</span></h1>
+            <p className={`${pjs.className} font-light text-white text-lg tracking-widest`}>by : LEGAR COMPANY</p>
+          </div>
         </div>
       </div>
     </main>
