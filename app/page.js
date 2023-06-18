@@ -2,6 +2,8 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import { Plus_Jakarta_Sans } from 'next/font/google'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const pjs = Plus_Jakarta_Sans({
   subsets: ['latin'],
   style: ['italic', 'normal'],
@@ -72,6 +74,8 @@ export default function Home() {
   const [activeDotIndex, setActiveDotIndex] = useState(0);
 
   useEffect(() => {
+    AOS.init();
+    AOS.refresh();
     const intervalGroup = setInterval(() => {
       setCurrentImageIndexes((prevIndexes) => {
         const nextIndex = (prevIndexes[2] + 1) % dataImage.length;
@@ -111,7 +115,7 @@ export default function Home() {
               <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
             </button>
             <div className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${toggle ? '' : 'hidden'}`} id="navbar-sticky">
-              <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-primary bg-white rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
+              <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-primary bg-white rounded-lg md:bg-transparent md:flex-row md:space-x-8 md:mt-0 md:border-0 ">
                 <li>
                   <a href="#" className="block py-2 pl-3 pr-4 text-primary opacity-[86%] md:p-0">Beranda</a>
                 </li>
@@ -131,38 +135,38 @@ export default function Home() {
 
         <div className='flex max-w-screen-xl md:flex-row flex-col gap-8 md:gap-0 px-4 py-8 md:px-16 md:py-10 w-full items-center justify-between mx-auto'>
           <div className='max-w-xl'>
-            <h1 className={`${pjs.className} text-xl md:text-4xl text-black font-bold`}>Discover your inner beauty with beYoutiful: Your ultimate beauty solution platform.</h1>
+            <h1 className={`${pjs.className} text-xl md:text-4xl text-black font-bold`} data-aos="fade-right" data-aos-duration="1000" data-aos-delay="0">Discover your inner beauty with beYoutiful: Your ultimate beauty solution platform.</h1>
             <div className='max-w-xs md:mt-6 mt-4'>
-              <p className={`${pjs.className} font-normal text-sm md:text-xl text-black`}>1st Indonesian Beauty Platform with Augmented Reality (AR) Fitur</p>
+              <p className={`${pjs.className} font-normal text-sm md:text-xl text-black`} data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300">1st Indonesian Beauty Platform with Augmented Reality (AR) Fitur</p>
             </div>
-            <div className={`bg-primary w-fit rounded-md md:px-6 md:py-3 px-4 py-2.5 uppercase opacity-[86px] md:mt-6 mt-4`}>
+            <div className={`bg-primary w-fit rounded-md md:px-6 md:py-3 px-4 py-2.5 uppercase opacity-[86px] md:mt-6 mt-4`} data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">
               <p className={`${pjs.className} font-normal md:text-sm text-xs`}>Shop Now</p>
             </div>
           </div>
-          <img src='./banner.jpg' className='w-[428px] md:h-[500px] h-[250px] object-cover object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' />
+          <img src='./banner.jpg' className='w-[428px] md:h-[500px] h-[250px] object-cover object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0" />
         </div>
       </div>
 
       <div className='bg-gradient-to-br from-rose-200 via-rose-100 to-white w-full h-fit items-center flex'>
         <div className='flex max-w-screen-xl md:flex-row flex-col gap-8 md:gap-0 px-4 py-8 md:px-16 md:py-24 w-full items-center justify-between mx-auto'>
-          <img src='./section2.jpg' className='md:order-1 order-2 w-[468px] md:h-[540px] h-[350px] object-cover object-top md:object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' />
+          <img src='./section2.jpg' className='md:order-1 order-2 w-[468px] md:h-[540px] h-[350px] object-cover object-top md:object-center md:rounded-tl-[47px] md:rounded-br-[47px] md:rounded-bl-[0px] md:rounded-tr-[47px] rounded-2xl' data-aos="fade-right" data-aos-duration="1000" data-aos-delay="300" />
           <div className='max-w-xl md:order-2 order-1'>
             <div className='md:space-y-5'>
-              <h1 className={`${pjs.className} text-3xl md:text-5xl text-black font-normal italic md:text-left text-center`}>Modern Product for</h1>
-              <h1 className={`${pjs.className} text-3xl md:text-5xl text-black font-bold not-italic md:text-left text-center`}>Modern Care</h1>
+              <h1 className={`${pjs.className} text-3xl md:text-5xl text-black font-normal italic md:text-left text-center`} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">Modern Product for</h1>
+              <h1 className={`${pjs.className} text-3xl md:text-5xl text-black font-bold not-italic md:text-left text-center`} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="700">Modern Care</h1>
             </div>
             <div className='md:mt-6 mt-8'>
-              <p className={`${pjs.className} font-normal text-sm md:text-xl text-black text-justify`}>BeYoutiful adalah sebuah platform inovatif yang menyediakan solusi kecantikan yang lebih mudah dan efektif bagi konsumen. Platform kami dirancang untuk meningkatkan aksesibilitas, efisiensi bisnis, dan pengalaman pelanggan dalam mencari, memilih, dan membeli produk atau jasa kecantikan. Melalui teknologi canggih dan fitur-fitur inovatif, BeYoutiful menyediakan solusi kecantikan yang efektif dan sesuai dengan kebutuhan konsumen, serta mendorong inovasi dalam industri kecantikan</p>
+              <p className={`${pjs.className} font-normal text-sm md:text-xl text-black text-justify`} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="1000">BeYoutiful adalah sebuah platform inovatif yang menyediakan solusi kecantikan yang lebih mudah dan efektif bagi konsumen. Platform kami dirancang untuk meningkatkan aksesibilitas, efisiensi bisnis, dan pengalaman pelanggan dalam mencari, memilih, dan membeli produk atau jasa kecantikan. Melalui teknologi canggih dan fitur-fitur inovatif, BeYoutiful menyediakan solusi kecantikan yang efektif dan sesuai dengan kebutuhan konsumen, serta mendorong inovasi dalam industri kecantikan</p>
             </div>
           </div>
         </div>
       </div>
       <div className='bg-gradient-to-tr from-rose-200 via-rose-100 to-white w-full h-fit flex'>
         <div className='flex max-w-screen-xl flex-col gap-4 md:gap-0 px-4 py-8 md:px-16 md:py-10 w-full items-center justify-center mx-auto'>
-          <h1 className={`uppercase ${pjs.className} font-medium tracking-widest text-black text-3xl md:text-5xl`}>Product</h1>
+          <h1 className={`uppercase ${pjs.className} font-medium tracking-widest text-black text-3xl md:text-5xl`} data-aos="fade-down" data-aos-duration="1000" data-aos-delay="300">Product</h1>
           <div className="md:hidden flex justify-center flex-col items-center space-y-6 mt-2">
-            <img src={dataImage[currentIndex].url} alt="Product Image" className="w-[348px] h-[480px] object-cover rounded-2xl drop-shadow-xl" />
-            <div className="mt-8 bg-primary w-full rounded-xl px-6 py-4 flex flex-col gap-4 opacity-[86%]">
+            <img src={dataImage[currentIndex].url} alt="Product Image" className="w-[348px] h-[480px] object-cover rounded-2xl drop-shadow-xl" data-aos="fade-left" data-aos-duration="700" data-aos-delay="400" />
+            <div className="mt-8 bg-primary w-full rounded-xl px-6 py-4 flex flex-col gap-4 opacity-[86%]" data-aos="fade-left" data-aos-duration="700" data-aos-delay="400">
               <span className="text-white space-x-4">
                 {'★'.repeat(dataImage[currentIndex].rating)}
               </span>
@@ -180,8 +184,9 @@ export default function Home() {
                     src={dataImage[index].url}
                     alt={`Image ${index + 1}`}
                     className="w-[348px] h-[480px] object-cover rounded-2xl drop-shadow-xl"
+                    data-aos="fade-left" data-aos-duration="700" data-aos-delay="400"
                   />
-                  <div className="mt-8 bg-primary w-full rounded-xl px-6 py-4 flex flex-col gap-4 opacity-[86%]">
+                  <div className="mt-8 bg-primary w-full rounded-xl px-6 py-4 flex flex-col gap-4 opacity-[86%]" data-aos="fade-left" data-aos-duration="700" data-aos-delay="400">
                     <span className="text-white space-x-4">
                       {'★'.repeat(product.rating)}
                     </span>
@@ -208,11 +213,11 @@ export default function Home() {
         <div className='flex max-w-screen-xl flex-col md:gap-20 gap-8 px-4 py-8 md:px-16 md:py-10 w-full items-center justify-center mx-auto'>
           <div className='flex flex-col md:flex-row justify-between w-full gap-6 md:gap-0'>
             <div className='flex flex-col max-w-sm justify-between'>
-              <h1 className={`text-2xl whitespace-nowrap text-black ${pjs.className} font-bold`}>Be<span className='text-primary opacity-[86%]'>You</span>tiful</h1>
-              <p className={`${pjs.className} text-lg font-bold text-white`}>The No. 1 Digital Destination for all things about Beauty - Shopping, LifeStyle & Trends</p>
+              <h1 className={`text-2xl whitespace-nowrap text-black ${pjs.className} font-bold`} data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">Be<span className='text-primary opacity-[86%]'>You</span>tiful</h1>
+              <p className={`${pjs.className} text-lg font-bold text-white`} data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400">The No. 1 Digital Destination for all things about Beauty - Shopping, LifeStyle & Trends</p>
             </div>
             <div className='flex flex-col md:flex-row gap-9'>
-              <div className={`flex flex-col ${pjs.className} gap-6`}>
+              <div className={`flex flex-col ${pjs.className} gap-6`} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="0">
                 <p className='uppercase font-normal'>information</p>
                 <ul className={`${pjs.className} font-normal text-sm`}>
                   <li>
@@ -241,7 +246,7 @@ export default function Home() {
                   </li>
                 </ul>
               </div>
-              <div className={`flex flex-col ${pjs.className} gap-6`}>
+              <div className={`flex flex-col ${pjs.className} gap-6`} data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
                 <p className='uppercase font-normal'>customer care</p>
                 <ul className={`${pjs.className} font-normal text-sm`}>
                   <li>
@@ -265,7 +270,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className='text-center w-full space-y-2 '>
+          <div className='text-center w-full space-y-2' >
             <h1 className={`${pjs.className} font-black text-2xl md:text-5xl tracking-wider uppercase italic text-black`}>Never <span className='text-white'>miss a</span> sale <span className='text-white'>again</span></h1>
             <p className={`${pjs.className} font-light text-white text-base md:text-lg tracking-widest`}>by : LEGAR COMPANY</p>
           </div>
